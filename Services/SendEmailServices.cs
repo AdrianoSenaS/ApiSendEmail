@@ -37,8 +37,9 @@ namespace ApiSendEmail.Services
             //Configuração do Servidor 
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
             {
+
                 Port = 587,// Porta padrão para envio de e-mails com TLS
-                Credentials = new NetworkCredential("hostsa45@gmail.com", "hamw qcfq ebbq trsw"), // Substitua pelo seu e-mail e senha
+                Credentials = new NetworkCredential("", ""), // Substitua pelo seu e-mail e senha
                 EnableSsl = true,
             };
 
@@ -51,7 +52,7 @@ namespace ApiSendEmail.Services
                 IsBodyHtml = true // Define que o corpo do e-mail é em HTML
             };
             // Destinatário
-            mailMessage.To.Add("melqueanalistadesistema@gmail.com"); // Substitua pelo destinatário
+            mailMessage.To.Add(""); // Substitua pelo destinatário
             try
             {
                 smtpClient.Send(mailMessage);
