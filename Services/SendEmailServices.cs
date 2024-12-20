@@ -2,11 +2,11 @@
 using System.Net;
 using System.Net.Mail;
 using Microsoft.AspNetCore.SignalR.Protocol;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace ApiSendEmail.Services
 {
     public class RegistrationForm
     {
-
         public string BirthCity { get; set; }
         public DateTime BirthDate { get; set; }
         public string BirthState { get; set; }
@@ -29,6 +29,17 @@ namespace ApiSendEmail.Services
         public string Street { get; set; }
         public string ZipCode { get; set; }
     }
+
+    public class ServiceRequest
+    {
+        public string AdditionalNotes { get; set; }
+        public string ContactNumber { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public string FullName { get; set; }
+        public string ServiceType { get; set; }
+    }
+
 
     public class SendEmailServices
     {
@@ -90,6 +101,18 @@ namespace ApiSendEmail.Services
                 .Replace("{{State}}", form.State)
                 .Replace("{{PaymentOption}}", form.PaymentOption)
                 .Replace("{{DueDate}}", form.DueDate);
+        }
+
+        public static string GenerateEmailClc(ServiceRequest service)
+        {     
+            string emailBody = File.ReadAllText("emailTemplateClc.html");
+            return emailBody
+                .Replace("{{ServiceType}}", service.ServiceType)
+                .Replace("{{Date}}",service.Date.ToString("dd/MM/yyyy"))
+                .Replace("{{FullName}}",service.FullName)
+                .Replace("{{ContactNumber}}", service.ContactNumber)
+                .Replace("{{Description}}", service.Description)
+                .Replace("{{AdditionalNotes}}", service.AdditionalNotes);
         }
     }
 }

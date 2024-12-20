@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Serviço</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Solicitação de Serviço 📝</h1>
+
+    <h2>Detalhes do Serviço</h2>
+    <table>
+        <tr><th>Tipo de Serviço</th><td>{{ServiceType}}</td></tr>
+        <tr><th>Data para realização</th><td>{{Date}}</td></tr>
+    </table>
+
+    <h2>Dados do Solicitante</h2>
+    <table>
+        <tr><th>Nome Completo</th><td>{{FullName}}</td></tr>
+        <tr><th>Contato</th><td>{{ContactNumber}}</td></tr>
+    </table>
+
+    <h2>Descrição</h2>
+    <table>
+        <tr><th>O que você busca</th><td>{{Description}}</td></tr>
+        <tr><th>Observações adicionais</th><td>{{AdditionalNotes}}</td></tr>
+    </table>
+
+    <div class="footer">
+        Desenvolvido Por  <a href="https://github.com/AdrianoSenaS" target="_blank">Adriano Sena</a>. 
+
+
+    </div>
+</body>
+</html>
