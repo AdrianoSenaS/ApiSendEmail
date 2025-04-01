@@ -45,25 +45,25 @@ namespace ApiSendEmail.Services
     {
         public static string Send(string form,string email, string name)
         {
-            //Configuração do Servidor 
+           
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
             {
 
                 Port = 587,// Porta padrão para envio de e-mails com TLS
-                Credentials = new NetworkCredential("", ""), // Substitua pelo seu e-mail e senha
+                Credentials = new NetworkCredential("", ""), //Substitua pelo seu e-mail e senha
                 EnableSsl = true,
             };
 
             //Configuração do email
             MailMessage mailMessage = new MailMessage()
             {
-                From = new MailAddress(email, name),// Remetente
-                Subject = "Formulário de Registro", // Assunto
+                From = new MailAddress(email, name),//Remetente
+                Subject = "Formulário de Registro", //Assunto
                 Body = form,
-                IsBodyHtml = true // Define que o corpo do e-mail é em HTML
+                IsBodyHtml = true 
             };
             // Destinatário
-            mailMessage.To.Add(""); // Substitua pelo destinatário
+            mailMessage.To.Add(""); //Substitua pelo destinatário
             try
             {
                 smtpClient.Send(mailMessage);
